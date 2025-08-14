@@ -11,6 +11,7 @@ app.use("/",(req, res,next) =>
     res.send("It is Working");
 })
 
+//DB Connection
 mongoose.connect("mongodb+srv://admin:AmLznRf64kY9jnYf@cluster0.poqqzym.mongodb.net/")
 .then(() => console.log("MongoDB Connected"))
 .then(() => {
