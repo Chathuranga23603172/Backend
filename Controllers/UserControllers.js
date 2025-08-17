@@ -67,7 +67,23 @@ const updateUser = async (req,res,next) => {
 
 };
 
+//delete user
+const deleteUser = async (req, res, next) => {
+    const id = req.params.id;
+    let user;
+    try {
+        user = await User.findByIdAndDelete(id);
+    } catch (err) {
+        console.log(err);
+    }
+    if (!user) {
+        return res.status(404).json({ message: "Unable to Delete User" });
+    }
+    return res.status(200).json({ user });
+};
+
 exports.updateUser = updateUser;
 exports.addUsers = addUsers;
 exports.getAllUsers = getAllUsers;
 exports.getUserById = getUserById;
+exports.deleteUser = deleteUser;
