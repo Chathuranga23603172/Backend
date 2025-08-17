@@ -32,6 +32,21 @@ const addUsers = async (req, res, next) => {
     }
         return res.status(200).json({ users });
 };
+//get by id
+const getUserById = async (req, res, next) => {
+    const id = req.params.id;
+    let user;
+    try {
+        user = await User.findById(id);
+    } catch (err) {
+        console.log(err);
+    }
+    if (!user) {
+        return res.status(404).json({ message: "User not found" });
+    }
+    return res.status(200).json({ user });
+};
 
 exports.addUsers = addUsers;
 exports.getAllUsers = getAllUsers;
+exports.getUserById = getUserById;
