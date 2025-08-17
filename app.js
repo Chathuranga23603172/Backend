@@ -6,7 +6,9 @@ const router = require("./Routes/UserRoutes");
 const app = express();
 
 //Middleware
+app.use(express.json());
 app.use("/users",router);
+
 
 //DB Connection
 mongoose.connect("mongodb+srv://admin:AmLznRf64kY9jnYf@cluster0.poqqzym.mongodb.net/")
