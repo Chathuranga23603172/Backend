@@ -44,10 +44,14 @@ const getUserById = async (req, res, next) => {
     if (!user) {
         return res.status(404).json({ message: "User not found" });
 <<<<<<< HEAD
+<<<<<<< HEAD
     }
 =======
     }l
 >>>>>>> 9c5d92c (ch)
+=======
+    }
+>>>>>>> f47c6cb (ch)
     return res.status(200).json({ user });
 };
 
